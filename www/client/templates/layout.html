@@ -1,0 +1,11 @@
+<template name="layout">
+	<div class="header">
+		<a href="mailto:nickburka@gmail.com">contact</a>
+	</div>
+	<div class="body">
+		{{> yield}}
+		<div class="lightbox">
+			{{> yield "lightbox"}}
+		</div>
+	</div>
+</template>

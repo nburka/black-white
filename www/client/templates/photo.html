@@ -1,0 +1,18 @@
+<template name="photoPage">
+	<div class="photo-page">
+		<div class="photo">
+		{{#linkTo route="photos" class="close-link"}}×{{/linkTo}}
+		{{#if getPrevPhoto}}
+			{{#linkTo route="photoPage" data=getPrevPhoto class="prev-link"}}<span>◀</span>{{/linkTo}}
+		{{/if}}
+		<img src="{{photo}}" width="800" height="800" />
+		{{#if getNextPhoto}}
+			{{#linkTo route="photoPage" data=getNextPhoto class="next-link"}}<span>▶</span>{{/linkTo}}
+		{{/if}}
+		<h3>{{title}}</h3>
+		</div>
+		{{#linkTo route="photos" class="background"}}
+			<img src="{{photo}}" width="800" height="800" />
+		{{/linkTo}}
+	</div>
+</template>
