@@ -1,11 +1,18 @@
 <template name="layout">
 	<div class="header">
-		<a href="mailto:nickburka@gmail.com">contact</a>
+		{{#if isActiveTemplate 'Project' 'Home' }}
+			<span>Projects</span>
+		{{else}}
+			{{#linkTo route="home"}}Projects{{/linkTo}}
+		{{/if}}
+		<span class="divider"></span>
+		{{#if isActiveTemplate 'Photos' }}
+			<span>All Photos</span>
+		{{else}}
+			{{#linkTo route="photos"}}All Photos{{/linkTo}}
+		{{/if}}
 	</div>
 	<div class="body">
 		{{> yield}}
-		<div class="lightbox">
-			{{> yield "lightbox"}}
-		</div>
 	</div>
 </template>

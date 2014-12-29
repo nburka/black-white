@@ -1,0 +1,24 @@
+<template name="project">
+	{{setPageTitle title}}
+	{{#if showProjectLinks}}
+		<ul class="projects">
+		{{#each projects}}
+			<li><a href="/project/{{_id}}">{{title}}</a></li>
+		{{/each}}
+		</ul>
+	{{/if}}
+
+	<div class="project">
+		<h1>{{title}}</h1>
+		{{#if description}}<p class="description">{{description}}</p>{{/if}}
+		<ul class="photos">
+		{{#each photos}}
+			<li>
+			{{#linkTo route="projectPhoto" project_id=../_id}}
+				<img src="/photos/{{photo}}" />
+			{{/linkTo}}
+			</li>
+		{{/each}}
+		</ul>
+	</div>
+</template>
