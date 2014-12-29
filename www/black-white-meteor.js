@@ -1,39 +1,15 @@
 if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault("counter", 0);
-
-  Template.photos.helpers({
-    photos: function () {
-      return Photos.find();
-    },
-	random: function() {
-		var min = 0;
-		var max = 10;
-		return Math.floor(Math.random() * (max - min + 1)) + min;
-	}
-  });
-
-  Template.photoPage.helpers({
-    getNextPhoto: function () {
-      var photo = Photos.findOne(
-		{ _id: { $gt: this['_id'] }},
-		{ sort: { _id: 1}}
-	  );
-
-	  return photo;
-    },
-    getPrevPhoto: function () {
-      var photo = Photos.findOne(
-		{ _id: { $lt: this['_id'] }},
-		{ sort: { _id: -1}}
-	  );
-      return photo;
-    }
-  });
+	Template.registerHelper('dateFormatLong', function(date) {
+		return moment(date).format('MMMM Do YYYY');
+	});
+	Template.registerHelper('setPageTitle', function() {
+		var args = _.toArray(arguments);
+		document.title = args.slice(0, args.length - 1).join(' | ');
+	});
 }
 
 if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
+	Meteor.startup(function () {
+		// code to run on server at startup
+	});
 }

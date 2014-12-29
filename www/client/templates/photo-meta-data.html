@@ -1,0 +1,8 @@
+<template name="photoMetaData">
+	<ul class="meta-data">
+		{{#if photo_date}}<li><strong>Taken:</strong> {{dateFormatLong photo_date}}</li>{{/if}}
+		<li><strong>Added:</strong> {{dateFormatLong publish_date}}</li>
+		{{#if meta_data.camera}}<li><strong>Camera:</strong> {{meta_data.camera}}</li>{{/if}}
+		{{#if meta_data.lens}}<li><strong>Lens:</strong> {{meta_data.lens}}</li>{{/if}}
+	</ul>
+</template>
