@@ -47,7 +47,7 @@ Router.route('/feed', function() {
 		feed_url: Meteor.absoluteUrl('feed'),
 		site_url: Meteor.absoluteUrl(),
 		copyright: _.str.sprintf(
-			'All s reserved %s, Nicholas Burka',
+			'All rights reserved %s, Nicholas Burka',
 			moment().format('YYYY')
 		),
 		categories: ['Photography']
