@@ -99,7 +99,6 @@ Router.route('/photos/:_id', function() {
 }, { name: 'photo' });
 
 Router.route('project/:project_id/photos/:_id', function() {
-	this.layout('');
 	this.render('projectPhoto', {
 		data: function() {
 			return {
