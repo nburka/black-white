@@ -1,52 +1,50 @@
 @import 'mixins.import.less';
 
 .photo-page {
+	.header {
+		display: none;
+	}
 	.photo {
+		margin: 0 auto 20px 0;
+		z-index: 2;
 		position: relative;
-		z-index: 1;
-
-		margin-top: 100px;
-		width: 800px;
-		margin: 0 auto 20px;
 		
 		img {
-			position: relative;
-			z-index: 2;
+			width: 100%;
+			height: auto;
 			box-shadow: 0px 0px 40px -4px rgba(0,0,0,0.75);
+		}
+
+		.next-prev {
+			position: relative;
+			height: 40px;
+			margin-bottom: 10px;
 		}
 
 		.prev-link,
 		.next-link {
+			display: block;
 			position: absolute;
-			top: 50px;
-			opacity: 0;
-			transition: 0.4s ease-in-out;
-			height: 700px;
-			width: 700px;
+			color: #fff;
+			text-decoration: none;
+			margin-bottom: 20px;
+			background: none;
+			width: 80px;
+			height: 40px;
+			text-indent: 90px;
+			overflow: hidden;
 		}
 
 		.prev-link {
-			display: block;
-			left: -150px;
-			.at2x('../img/prev.png', 50px, 150px);
+			left: 0;
+			.at2x('../img/prev-mobile.png', 40px, 40px);
 			background-position: 0 50%;
 		}
 
 		.next-link {
-			display: block;
-			right: -150px;
-			.at2x('../img/next.png', 50px, 150px);
+			right: 0;
+			.at2x('../img/next-mobile.png', 40px, 40px);
 			background-position: 100% 50%;
-		}
-
-		&:hover {
-			.prev-link,
-			.next-link {
-				opacity: 0.7;
-				&:hover {
-					opacity: 1;
-				}
-			}
 		}
 
 		.info {
@@ -59,15 +57,71 @@
 		}
 
 		.meta-data {
+			margin-top: 20px;
 			list-style: none;
 			padding: 0;
 			font-size: @font-size-small;
-			color: #fff;
-			opacity: 0.6;
+			color: #ccc;
 
 			li {
 				border-top: 1px solid rgba(255, 255, 255, 0.2);
 				padding: 5px 0;
+			}
+
+			strong {
+				color: #eee;
+			}
+		}
+
+		@media (min-width: @screen-md-min) {
+			margin-top: 20px;
+
+			img {
+				display: block;
+				width: 80%;
+				margin: 0 auto;
+			}
+
+			.next-prev {
+				height: auto;
+			}
+
+			.prev-link,
+			.next-link {
+				top: 50px;
+				opacity: 0;
+				transition: 0.4s ease-in-out;
+				height: 800px;
+				width: 700px;
+				overflow: hidden;
+			}
+
+			.next-prev {
+				position: static;
+			}
+
+			.prev-link {
+				.at2x('../img/prev.png', 50px, 150px);
+			}
+
+			.next-link {
+				.at2x('../img/next.png', 50px, 150px);
+			}
+
+			&:hover {
+				.prev-link,
+				.next-link {
+					opacity: 0.7;
+					&:hover {
+						opacity: 1;
+					}
+				}
+			}
+
+			.info,
+			.meta-data {
+				width: 80%;
+				margin: 40px auto;
 			}
 		}
 	}

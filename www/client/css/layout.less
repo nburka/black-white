@@ -19,6 +19,7 @@ h2 {
 
 .header {
 	margin: 5px 0;
+	text-align: center;
 
 	a, span {
 		display: inline-block;
@@ -45,3 +46,8 @@ h2 {
 	}
 }
 
+@media (min-width: @screen-sm-min) {
+	.header {
+		text-align: left;
+	}
+}

@@ -14,14 +14,14 @@ Router.configure({
 		if (Meteor.isClient) {
 			var currentRoute = Router.current();
 			var template = (currentRoute) ? currentRoute.lookupTemplate() : '';
-			$('body').addClass(template.toLowerCase());
+			$('body').addClass(template.toLowerCase() + '-page');
 		}
 	},
 	onStop: function() {
 		if (Meteor.isClient) {
 			var currentRoute = Router.current();
 			var template = (currentRoute) ? currentRoute.lookupTemplate() : '';
-			$('body').removeClass(template.toLowerCase());
+			$('body').removeClass(template.toLowerCase() + '-page');
 		}
 	}
 });
