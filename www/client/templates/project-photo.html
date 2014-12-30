@@ -17,8 +17,6 @@
 			<img {{photo.getImgTag}} />
 			{{> photoInfo photo }}
 		</div>
-		{{#linkTo route="project" _id=project._id class="background"}}
-			<img {{photo.getImgTag}} />
-		{{/linkTo}}
+		<div class="background"><img {{photo.getImgTag}} /></div>
 	</div>
 </template>

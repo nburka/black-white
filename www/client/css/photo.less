@@ -2,8 +2,10 @@
 
 .photo-page {
 	.header {
-		display: none;
+		z-index: 3;
+		position: relative;
 	}
+
 	.photo {
 		margin: 0 auto 20px 0;
 		z-index: 2;
@@ -48,7 +50,7 @@
 		}
 
 		.info {
-			color: #fff;
+			color: #000;
 			margin-top: 20px;
 
 			p {
@@ -61,15 +63,15 @@
 			list-style: none;
 			padding: 0;
 			font-size: @font-size-small;
-			color: #ccc;
+			color: #333;
 
 			li {
-				border-top: 1px solid rgba(255, 255, 255, 0.2);
+				border-top: 1px solid rgba(0, 0, 0, 0.2);
 				padding: 5px 0;
 			}
 
 			strong {
-				color: #eee;
+				color: #000;
 			}
 		}
 
@@ -92,7 +94,7 @@
 				opacity: 0;
 				transition: 0.4s ease-in-out;
 				height: 800px;
-				width: 700px;
+				width: 200px;
 				overflow: hidden;
 			}
 
@@ -101,11 +103,11 @@
 			}
 
 			.prev-link {
-				.at2x('../img/prev.png', 50px, 150px);
+				.at2x('../img/black-prev.png', 50px, 150px);
 			}
 
 			.next-link {
-				.at2x('../img/next.png', 50px, 150px);
+				.at2x('../img/black-next.png', 50px, 150px);
 			}
 
 			&:hover {
@@ -123,23 +125,6 @@
 				width: 80%;
 				margin: 40px auto;
 			}
-		}
-	}
-
-	.background {
-		background: #000;
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		z-index: 0;
-
-		img {
-			opacity: 0.3;
-			width: 100%;
-			height: auto;
-			-webkit-filter: blur(15px);
 		}
 	}
 }
