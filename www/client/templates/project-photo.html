@@ -2,18 +2,20 @@
 	{{setPageTitle project.title photo.title}}
 	<div class="photo-page">
 		<div class="photo">
-		{{#with getPrevPhoto}}
-			{{#if this}}
-				{{#linkTo route="projectPhoto" project_id=../project._id class="prev-link"}}{{/linkTo}}
-			{{/if}}
-		{{/with}}
-		<img {{photo.getImgTag}} />
-		{{#with getNextPhoto}}
-			{{#if this}}
-				{{#linkTo route="projectPhoto" project_id=../project._id class="next-link"}}{{/linkTo}}
-			{{/if}}
-		{{/with}}
-		{{> photoInfo photo }}
+			<div class="next-prev">
+				{{#with getPrevPhoto}}
+					{{#if this}}
+						{{#linkTo route="projectPhoto" project_id=../project._id class="prev-link"}}{{/linkTo}}
+					{{/if}}
+				{{/with}}
+				{{#with getNextPhoto}}
+					{{#if this}}
+						{{#linkTo route="projectPhoto" project_id=../project._id class="next-link"}}{{/linkTo}}
+					{{/if}}
+				{{/with}}
+			</div>
+			<img {{photo.getImgTag}} />
+			{{> photoInfo photo }}
 		</div>
 		{{#linkTo route="project" _id=project._id class="background"}}
 			<img {{photo.getImgTag}} />

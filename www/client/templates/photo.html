@@ -1,23 +1,24 @@
 <template name="photo">
 	{{setPageTitle title}}
-	<div class="photo-page">
-		<div class="photo">
-		{{#with getPrevPhoto}}
-			{{#if this}}
-				{{#linkTo route="photo" class="prev-link"}}{{/linkTo}}
-			{{/if}}
-		{{/with}}
+	<div class="photo">
+		<div class="next-prev">
+			{{#with getPrevPhoto}}
+				{{#if this}}
+					{{#linkTo route="photo" class="prev-link"}}{{/linkTo}}
+				{{/if}}
+			{{/with}}
+			{{#with getNextPhoto}}
+				{{#if this}}
+					{{#linkTo route="photo" class="next-link"}}{{/linkTo}}
+				{{/if}}
+			{{/with}}
+		</div>
 		<img {{getImgTag}} />
-		{{#with getNextPhoto}}
-			{{#if this}}
-				{{#linkTo route="photo" class="next-link"}}{{/linkTo}}
-			{{/if}}
-		{{/with}}
 		{{> photoInfo this }}
 		{{> photoMetaData this }}
-		</div>
-		{{#linkTo route="photos" class="background"}}
-			<img {{this.getImgTag}} />
-		{{/linkTo}}
 	</div>
+	<div class="background">
+	{{#linkTo route="photos" class="background"}}
+		<img {{this.getImgTag}} />
+	{{/linkTo}}
 </template>

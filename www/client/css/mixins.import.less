@@ -1,3 +1,8 @@
+@screen-xs-max: 460px;
+@screen-sm-min: 768px;
+@screen-md-min: 992px;
+@screen-lg-min: 1200px;
+
 @font-color: #000;
 @background-color: #fffffd;
 
@@ -6,7 +11,7 @@
 @font-size-base: 15px;
 @font-size-small: 12px;
 
-@highdpi: ~"(-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx)";
+@highdpi: ~"(min-resolution: 1.5dppx)";
 
 .at2x(@path, @w: auto, @h: auto) {
 	background-image: url(@path);
@@ -16,5 +21,19 @@
 	@media @highdpi {
 		background-image: url("@{at2x_path}");
 		background-size: @w @h;
+	}
+}
+
+.clearfix {
+	display: block;
+	zoom: 1;
+
+	&:after {
+		content: " ";
+		display: block;
+		font-size: 0;
+		height: 0;
+		clear: both;
+		visibility: hidden;
 	}
 }
