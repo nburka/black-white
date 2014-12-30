@@ -1,0 +1,67 @@
+@import 'mixins.import.less';
+
+.projectphoto-page {
+	.header {
+		z-index: 3;
+		position: relative;
+
+		a,
+		span {
+			color: #fff;
+		}
+	}
+
+	.background {
+		background: #000;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 0;
+
+		img {
+			opacity: 0.3;
+			width: 100%;
+			height: auto;
+			filter: blur(15px);
+			-webkit-filter: blur(15px);
+		}
+	}
+
+	.photo {
+		.prev-link {
+			.at2x('../img/prev-mobile.png', 40px, 40px);
+		}
+
+		.next-link {
+			.at2x('../img/next-mobile.png', 40px, 40px);
+		}
+
+		@media (min-width: @screen-md-min) {
+			.prev-link {
+				.at2x('../img/prev.png', 50px, 150px);
+			}
+
+			.next-link {
+				.at2x('../img/next.png', 50px, 150px);
+			}
+		}
+
+		.info {
+			color: #fff;
+		}
+
+		.meta-data {
+			color: #ccc;
+
+			li {
+				border-top: 1px solid rgba(255, 255, 255, 0.2);
+			}
+
+			strong {
+				color: #eee;
+			}
+		}
+	}
+}
