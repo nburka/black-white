@@ -1,9 +1,9 @@
 <template name="layout">
 	<div class="header">
 		{{#if isActiveTemplate 'Project' 'Home' }}
-			<span>Projects</span>
+			<span>Curated Photos</span>
 		{{else}}
-			{{#linkTo route="home"}}Projects{{/linkTo}}
+			{{#linkTo route="home"}}Curated Photos{{/linkTo}}
 		{{/if}}
 		<span class="divider"></span>
 		{{#if isActiveTemplate 'Photos' }}
