@@ -2,7 +2,6 @@
 
 .projectphoto-page {
 	.header {
-		opacity: 0;
 		z-index: 3;
 		position: relative;
 		transition: 0.4s ease-in-out;
@@ -10,12 +9,6 @@
 		a,
 		span {
 			color: #fff;
-		}
-	}
-
-	&:hover {
-		.header {
-			opacity: 1;
 		}
 	}
 
@@ -51,8 +44,30 @@
 		.next-link {
 			.at2x('../img/next-mobile.png', 40px, 40px);
 		}
+	}
 
-		@media (min-width: @screen-md-min) {
+	.info {
+		color: #fff;
+	}
+
+	p.copyright {
+		font-size: @font-size-small;
+		color: #fff;
+		opacity: 0.2;
+	}
+
+	@media (min-width: @screen-sm-min) {
+		.header {
+			opacity: 0;
+		}
+
+		&:hover {
+			.header {
+				opacity: 1;
+			}
+		}
+
+		.photo {
 			.prev-link {
 				.at2x('../img/prev.png', 50px, 150px);
 			}
@@ -62,15 +77,9 @@
 			}
 		}
 
-		.info {
-			color: #fff;
-		}
-
 		p.copyright {
-			font-size: @font-size-small;
-			color: #fff;
-			opacity: 0.2;
-			margin: 0 10%;
+			width: 65%;
+			margin: 0 auto;
 		}
 	}
 }

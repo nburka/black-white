@@ -9,3 +9,7 @@ Template.project.helpers({
 		return (Projects.find().count() > 1);
 	}
 });
+
+Template.project.rendered = function() {
+	$("img.lazy").unveil();
+};
