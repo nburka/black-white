@@ -14,7 +14,9 @@
 					{{/if}}
 				{{/with}}
 			</div>
-			<img {{photo.getImgTag '1000'}} />
+			<div class="photo-img">
+				<img {{photo.getImgTag '1000'}} />
+			</div>
 			{{> photoInfo photo }}
 			<p class="copyright">All rights reserved {{dateFormat photo_date 'YYYY'}}, Nicholas Burka</p>
 		</div>
