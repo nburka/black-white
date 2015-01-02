@@ -2,8 +2,16 @@
 
 .photo-page {
 	.header {
+		opacity: 0;
 		z-index: 3;
 		position: relative;
+		transition: 0.4s ease-in-out;
+	}
+
+	&:hover {
+		.header {
+			opacity: 1;
+		}
 	}
 
 	.photo {
@@ -40,13 +48,13 @@
 
 		.prev-link {
 			left: 0;
-			.at2x('../img/prev-mobile.png', 40px, 40px);
+			.at2x('../img/black-prev-mobile.png', 40px, 40px);
 			background-position: 0 50%;
 		}
 
 		.next-link {
 			right: 0;
-			.at2x('../img/next-mobile.png', 40px, 40px);
+			.at2x('../img/black-next-mobile.png', 40px, 40px);
 			background-position: 100% 50%;
 		}
 

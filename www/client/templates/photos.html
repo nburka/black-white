@@ -2,7 +2,11 @@
 {{setPageTitle 'All Photos'}}
 <ul class="photos">
 {{#each photos}}
-	<li><a href="{{pathFor 'photo'}}"><img src="/photos/{{photo}}" /></a></li>
+	<li>
+		<a href="{{pathFor 'photo'}}">
+			<img {{getImgTag '200'}} />
+		</a>
+	</li>
 {{/each}}
 </ul>
 </template>
