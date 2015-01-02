@@ -2,12 +2,20 @@
 
 .projectphoto-page {
 	.header {
+		opacity: 0;
 		z-index: 3;
 		position: relative;
+		transition: 0.4s ease-in-out;
 
 		a,
 		span {
 			color: #fff;
+		}
+	}
+
+	&:hover {
+		.header {
+			opacity: 1;
 		}
 	}
 

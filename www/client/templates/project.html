@@ -15,7 +15,7 @@
 		{{#each photos}}
 			<li>
 			{{#linkTo route="projectPhoto" project_id=../_id}}
-				<img src="/photos/{{photo}}" />
+				<img {{getImgTag '300'}} />
 			{{/linkTo}}
 			</li>
 		{{/each}}

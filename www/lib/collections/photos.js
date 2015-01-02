@@ -3,11 +3,17 @@ Photo = function (doc) {
 };
 
 _.extend(Photo.prototype, {
-	getImgTag: function (param) {
+	getImgTag: function (dimension) {
 		return {
-			src: '/photos/' + this.photo,
-			width: 800,
-			height: 800
+			src: _.str.sprintf(
+				'%s/photos/%s/%s',
+				Meteor.settings.public.uri.cdn,
+				dimension,
+				this.filename
+			),
+			alt: this.title,
+			width: '200',
+			height: '200'
 		};
 	}
 });

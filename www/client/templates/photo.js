@@ -8,17 +8,44 @@ Template.photo.helpers({
 });
 
 Template.photo.getPrevPhoto = function(id) {
-	return Photos.findOne(
-		{ _id: { $gt: id }},
-		{ sort: { _id: 1}}
+	var photos = Photos.find(
+		{},
+		{ sort: { publish_date: -1, _id: -1}}
 	);
+
+	var found = false;
+	var prev_photo = null;
+	photos.forEach(function(photo) {
+		if (photo._id === id) {
+			found = true;
+		}
+
+		if (!found) {
+			prev_photo = photo;
+		}
+	});
+
+	return prev_photo;
 }
 
 Template.photo.getNextPhoto = function(id) {
-	return Photos.findOne(
-		{ _id: { $lt: id }},
-		{ sort: { _id: -1}}
+	var photos = Photos.find(
+		{},
+		{ sort: { publish_date: -1, _id: -1}}
 	);
+
+	var found = false;
+	var next_photo = null;
+	photos.forEach(function(photo) {
+		if (found) {
+			next_photo = photo;
+			found = false;
+		}
+
+		found = (photo._id === id);
+	});
+
+	return next_photo;
 }
 
 Template.photo.captureNextPrevKeypress = function(e) {

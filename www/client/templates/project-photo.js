@@ -8,37 +8,44 @@ Template.projectPhoto.helpers({
 });
 
 Template.projectPhoto.getPrevPhoto = function(photo, project) {
-	return Photos.findOne(
-		{
-			_id: {
-				$in: project.photos,
-				$gt: photo._id
-			}
-		},
-		{
-			sort: {
-				publish_date: 1,
-				_id: 1
-			}
-		}
+	var photos = Photos.find(
+		{ _id: { $in: project.photos }},
+		{ sort: { publish_date: -1, _id: -1}}
 	);
+
+	var found = false;
+	var prev_photo = null;
+	photos.forEach(function(project_photo) {
+		if (photo._id === project_photo._id) {
+			found = true;
+		}
+
+		if (!found) {
+			prev_photo = project_photo;
+		}
+	});
+
+	return prev_photo;
 }
 
 Template.projectPhoto.getNextPhoto = function(photo, project) {
-	return Photos.findOne(
-		{
-			_id: {
-				$in: project.photos,
-				$lt: photo._id
-			}
-		},
-		{
-			sort: {
-				publish_date: -1,
-				_id: -1
-			}
-		}
+	var photos = Photos.find(
+		{ _id: { $in: project.photos }},
+		{ sort: { publish_date: -1, _id: -1}}
 	);
+
+	var found = false;
+	var next_photo = null;
+	photos.forEach(function(project_photo) {
+		if (found) {
+			next_photo = project_photo;
+			found = false;
+		}
+
+		found = (project_photo._id === photo._id);
+	});
+
+	return next_photo;
 }
 
 Template.projectPhoto.captureNextPrevKeypress = function(e) {

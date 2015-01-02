@@ -14,10 +14,10 @@
 					{{/if}}
 				{{/with}}
 			</div>
-			<img {{photo.getImgTag}} />
+			<img {{photo.getImgTag 'original'}} />
 			{{> photoInfo photo }}
 			<p class="copyright">All rights reserved {{dateFormat photo_date 'YYYY'}}, Nicholas Burka</p>
 		</div>
-		<div class="background"><img {{photo.getImgTag}} /></div>
+		<div class="background"><img {{photo.getImgTag 'original'}} /></div>
 	</div>
 </template>
