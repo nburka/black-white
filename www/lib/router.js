@@ -3,10 +3,11 @@ Router.configure({
 	loadingTemplate: 'loading',
 	notFoundTemplate: 'notFound',
 	waitOn: function() {
-		return (
-			Meteor.subscribe('photos') &&
-			Meteor.subscribe('projects')
-		);
+		return [
+			Meteor.subscribe('photos'),
+			Meteor.subscribe('projects'),
+			IRLibLoader.load('/js/jquery.unveil.js')
+		];
 	},
 	onBeforeAction: function() {
 		this.next();
@@ -15,6 +16,7 @@ Router.configure({
 			var currentRoute = Router.current();
 			var template = (currentRoute) ? currentRoute.lookupTemplate() : '';
 			$('body').addClass(template.toLowerCase() + '-page');
+
 		}
 	},
 	onStop: function() {

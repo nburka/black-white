@@ -8,6 +8,7 @@
  * https://github.com/luis-almeida
  */
 
+;(function($) {
 
   $.fn.unveil = function(threshold, callback) {
 
@@ -52,3 +53,4 @@
 
   };
 
+})(window.jQuery || window.Zepto);

@@ -2,6 +2,7 @@
 
 .projectphoto-page {
 	.header {
+		opacity: 1;
 		z-index: 3;
 		position: relative;
 		transition: 0.4s ease-in-out;
@@ -9,6 +10,19 @@
 		a,
 		span {
 			color: #fff;
+		}
+	}
+
+	&.idle {
+		.header {
+			opacity: 0;
+		}
+
+		.photo .next-prev {
+			.prev-link,
+			.next-link {
+				opacity: 0;
+			}
 		}
 	}
 
@@ -57,16 +71,6 @@
 	}
 
 	@media (min-width: @screen-sm-min) {
-		.header {
-			opacity: 0;
-		}
-
-		&:hover {
-			.header {
-				opacity: 1;
-			}
-		}
-
 		.photo {
 			.prev-link {
 				.at2x('../img/prev.png', 50px, 150px);
