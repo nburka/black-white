@@ -1,6 +1,6 @@
 <template name="photoInfo">
 	<div class="info">
-		<h2>{{title}}</h2>
-		<p>Description of the photo goes here.</p>
+		{{#if title}}<h2>{{title}}</h2>{{/if}}
+		{{#if description}}<p>{{description}}</p>{{/if}}
 	</div>
 </template>

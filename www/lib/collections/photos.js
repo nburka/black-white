@@ -5,8 +5,15 @@ Photo = function (doc) {
 _.extend(Photo.prototype, {
 	getImgTag: function (dimension) {
 		return {
-			src: _.str.sprintf(
+			'class': 'lazy',
+			'data-src': _.str.sprintf(
 				'%s/photos/%s/%s',
+				Meteor.settings.public.uri.cdn,
+				dimension,
+				this.filename
+			),
+			'data-src-retina': _.str.sprintf(
+				'%s/photos/%s@2x/%s',
 				Meteor.settings.public.uri.cdn,
 				dimension,
 				this.filename

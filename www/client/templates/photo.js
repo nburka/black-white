@@ -70,6 +70,7 @@ Template.photo.rendered = function() {
 	// instance.
 	var that = this;
 	this.autorun(function() {
+		$("img.lazy").unveil();
 		that.current_id = Template.currentData()._id;
 	});
 

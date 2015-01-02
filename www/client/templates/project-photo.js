@@ -82,6 +82,7 @@ Template.projectPhoto.rendered = function() {
 	// instance.
 	var that = this;
 	this.autorun(function() {
+		$("img.lazy").unveil();
 		that.current_data = Template.currentData();
 	});
 
