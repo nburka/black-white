@@ -1,0 +1,15 @@
+<template name="header">
+	<div class="header">
+		{{#if isActiveTemplate 'Project' 'Home' }}
+			<span>Curated Photos</span>
+		{{else}}
+			{{#linkTo route="home"}}Curated Photos{{/linkTo}}
+		{{/if}}
+		<span class="divider"></span>
+		{{#if isActiveTemplate 'Photos' }}
+			<span>All Photos</span>
+		{{else}}
+			{{#linkTo route="photos"}}All Photos{{/linkTo}}
+		{{/if}}
+	</div>
+</template>
