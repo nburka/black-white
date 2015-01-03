@@ -96,7 +96,9 @@ Router.route('/photos/:_id', function() {
 	fastRender: true
 });
 
-Router.route('/projects', { name: 'projects' });
+Router.route('/projects', function() {
+	this.redirect('/');
+});
 
 Router.route('/projects/:_id', function() {
 	this.render('project', {
