@@ -4,9 +4,6 @@ Template.project.helpers({
 	},
 	projects: function() {
 		return Projects.find({}, { sort: { create_date: -1}});
-	},
-	showProjectLinks: function() {
-		return (Projects.find().count() > 1);
 	}
 });
 
