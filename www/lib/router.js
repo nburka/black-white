@@ -5,8 +5,8 @@ Router.configure({
 	waitOn: function() {
 		return [
 			Meteor.subscribe('photos'),
-			Meteor.subscribe('projects'),
-			IRLibLoader.load('/js/jquery.unveil.js')
+			Meteor.subscribe('projects')
+			//IRLibLoader.load('/js/jquery.unveil.js')
 		];
 	},
 	onBeforeAction: function() {
@@ -36,7 +36,7 @@ Router.route('/', function() {
 			return Projects.findOne({}, { create_date : 'asc'} );
 		}
 	});
-}, { name: 'home' });
+}, { name: 'home', fastRender: true });
 
 Router.route('/feed', function() {
 	var request = this.request;
@@ -88,7 +88,7 @@ Router.route('/project/:_id', function() {
 			return Projects.findOne({_id: this.params._id});
 		}
 	});
-}, { name: 'project' });
+}, { name: 'project', fastRender: true });
 
 Router.route('/photos', { name: 'photos' });
 
@@ -98,7 +98,7 @@ Router.route('/photos/:_id', function() {
 			return Photos.findOne({_id: this.params._id});
 		}
 	});
-}, { name: 'photo' });
+}, { name: 'photo', fastRender: true });
 
 Router.route('project/:project_id/photos/:_id', function() {
 	this.render('projectPhoto', {
@@ -109,4 +109,4 @@ Router.route('project/:project_id/photos/:_id', function() {
 			}
 		}
 	});
-}, { name: 'projectPhoto' });
+}, { name: 'projectPhoto', fastRender: true });
