@@ -1,8 +1,9 @@
 <template name="projectPhoto">
 	{{setPageTitle project.title photo.title}}
+	{{#linkTo route="project" _id=project._id class="back-link hide-on-idle"}}{{project.title}}{{/linkTo}}
 	<div class="photo-page">
 		<div class="photo">
-			<div class="next-prev">
+			<div class="next-prev hide-on-idle">
 				{{#with getPrevPhoto}}
 					{{#if this}}
 						{{#linkTo route="projectPhoto" project_id=../project._id class="prev-link"}}{{/linkTo}}

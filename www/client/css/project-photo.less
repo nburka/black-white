@@ -1,33 +1,11 @@
 @import 'mixins.import.less';
 
 .projectphoto-page {
-	.header {
+	.back-link {
 		opacity: 1;
 		z-index: 3;
 		position: relative;
-		transition: 0.4s ease-in-out;
-
-		a,
-		span {
-			color: #fff;
-		}
-
-		.divider {
-			background: #333;
-		}
-	}
-
-	&.idle {
-		.header {
-			opacity: 0;
-		}
-
-		.photo .next-prev {
-			.prev-link,
-			.next-link {
-				opacity: 0;
-			}
-		}
+		color: #fff;
 	}
 
 	.photo {

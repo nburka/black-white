@@ -1,7 +1,8 @@
 <template name="photo">
 	{{setPageTitle title}}
+	{{#linkTo route="photos" class="back-link hide-on-idle"}}Back to All Photos{{/linkTo}}
 	<div class="photo">
-		<div class="next-prev">
+		<div class="next-prev hide-on-idle">
 			{{#with getPrevPhoto}}
 				{{#if this}}
 					{{#linkTo route="photo" class="prev-link"}}{{/linkTo}}

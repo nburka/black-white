@@ -82,14 +82,6 @@ Router.route('/feed', function() {
 	this.response.end(feed.xml({indent: true}));
 }, { where: 'server' });
 
-Router.route('/project/:_id', function() {
-	this.render('project', {
-		data: function() {
-			return Projects.findOne({_id: this.params._id});
-		}
-	});
-}, { name: 'project', fastRender: true });
-
 Router.route('/photos', { name: 'photos' });
 
 Router.route('/photos/:_id', function() {
@@ -98,9 +90,23 @@ Router.route('/photos/:_id', function() {
 			return Photos.findOne({_id: this.params._id});
 		}
 	});
-}, { name: 'photo', fastRender: true });
+}, {
+	name: 'photo',
+	layoutTemplate: '',
+	fastRender: true
+});
 
-Router.route('project/:project_id/photos/:_id', function() {
+Router.route('/projects', { name: 'projects' });
+
+Router.route('/projects/:_id', function() {
+	this.render('project', {
+		data: function() {
+			return Projects.findOne({_id: this.params._id});
+		}
+	});
+}, { name: 'project', fastRender: true });
+
+Router.route('projects/:project_id/photos/:_id', function() {
 	this.render('projectPhoto', {
 		data: function() {
 			return {
@@ -109,4 +115,8 @@ Router.route('project/:project_id/photos/:_id', function() {
 			}
 		}
 	});
-}, { name: 'projectPhoto', fastRender: true });
+}, {
+	name: 'projectPhoto',
+	layoutTemplate: '',
+	fastRender: true
+});
