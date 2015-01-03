@@ -23,7 +23,6 @@
 			}
 		}
 
-
 		.next-prev {
 			position: relative;
 			height: 40px;
@@ -49,18 +48,31 @@
 		.prev-link {
 			left: 0;
 			.at2x('../img/black-prev-mobile.png', 40px, 40px);
+			.dark & {
+				.at2x('../img/prev-mobile.png', 40px, 40px);
+			}
+
 			background-position: 0 50%;
 		}
 
 		.next-link {
 			right: 0;
 			.at2x('../img/black-next-mobile.png', 40px, 40px);
+			.dark & {
+				.at2x('../img/next-mobile.png', 40px, 40px);
+			}
+
 			background-position: 100% 50%;
 		}
 	}
 
 	.info {
 		color: #000;
+		.dark & {
+			color: #fff;
+		}
+
+
 		margin-top: 20px;
 
 		p {
@@ -119,10 +131,16 @@
 
 			.prev-link {
 				.at2x('../img/black-prev.png', 50px, 150px);
+				.dark & {
+					.at2x('../img/prev.png', 50px, 50px);
+				}
 			}
 
 			.next-link {
 				.at2x('../img/black-next.png', 50px, 150px);
+				.dark & {
+					.at2x('../img/next.png', 50px, 50px);
+				}
 			}
 		}
 

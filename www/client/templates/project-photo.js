@@ -69,7 +69,7 @@ Template.projectPhoto.captureNextPrevKeypress = function(e) {
 	if (photo) {
 		Router.go(
 			_.str.sprintf(
-				'/project/%s/photos/%s',
+				'/projects/%s/photos/%s',
 				this.current_data.project._id,
 				photo._id
 			)
