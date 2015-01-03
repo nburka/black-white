@@ -1,5 +1,6 @@
 <template name="photo">
 	{{setPageTitle title}}
+	{{removeBodyClass 'dark'}}
 	{{#linkTo route="photos" class="back-link hide-on-idle"}}Back to All Photos{{/linkTo}}
 	<div class="photo">
 		<div class="next-prev hide-on-idle">

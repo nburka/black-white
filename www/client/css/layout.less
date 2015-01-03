@@ -4,7 +4,7 @@
 body {
 	margin: 0;
 	padding: 10px;
-	background: @background-color;
+	background: #fffffd;
 	font-family: 'Arimo', sans-serif;
 	font-size: @font-size-base;
 
@@ -16,6 +16,23 @@ body {
 		.hide-on-idle {
 			opacity: 0;
 		}
+	}
+}
+
+a {
+	color: #000;
+	.dark & {
+		color: #fff;
+		&:hover,
+		&:active {
+			color: darken(#fff, 20%);
+		}
+	}
+
+	text-decoration: none;
+	&:hover,
+	&:active {
+		color: lighten(#000, 20%);
 	}
 }
 
@@ -43,11 +60,6 @@ img {
 		font-size: @font-size-base;
 	}
 
-	a {
-		color: @font-color;
-		text-decoration: none;
-	}
-
 	span {
 		font-weight: bold;
 	}
@@ -67,6 +79,17 @@ img {
 
 		a, span {
 			font-size: @font-size-large;
+		}
+	}
+
+	.back-link {
+		display: block;
+		height: 25px;
+		line-height: 25px;
+		padding-left: 25px;
+		.at2x('../img/black-back.png', 25px, 25px);
+		.dark & {
+			.at2x('../img/back.png', 25px, 25px);
 		}
 	}
 }
