@@ -1,13 +1,13 @@
-Template.photo.helpers({
+Template.photoPage.helpers({
 	getPrevPhoto: function () {
-		return Template.photo.getPrevPhoto(this._id);
+		return Template.photoPage.getPrevPhoto(this._id);
 	},
 	getNextPhoto: function () {
-		return Template.photo.getNextPhoto(this._id);
+		return Template.photoPage.getNextPhoto(this._id);
 	}
 });
 
-Template.photo.getPrevPhoto = function(id) {
+Template.photoPage.getPrevPhoto = function(id) {
 	var photos = Photos.find(
 		{},
 		{ sort: { publish_date: -1, _id: -1}}
@@ -28,7 +28,7 @@ Template.photo.getPrevPhoto = function(id) {
 	return prev_photo;
 }
 
-Template.photo.getNextPhoto = function(id) {
+Template.photoPage.getNextPhoto = function(id) {
 	var photos = Photos.find(
 		{},
 		{ sort: { publish_date: -1, _id: -1}}
@@ -48,15 +48,15 @@ Template.photo.getNextPhoto = function(id) {
 	return next_photo;
 }
 
-Template.photo.captureNextPrevKeypress = function(e) {
+Template.photoPage.captureNextPrevKeypress = function(e) {
 	var photo = false;
 
 	switch (e.which) {
 	case 39:
-		photo = Template.photo.getNextPhoto(this.current_id);
+		photo = Template.photoPage.getNextPhoto(this.current_id);
 		break;
 	case 37:
-		photo = Template.photo.getPrevPhoto(this.current_id);
+		photo = Template.photoPage.getPrevPhoto(this.current_id);
 		break;
 	}
 
@@ -65,7 +65,7 @@ Template.photo.captureNextPrevKeypress = function(e) {
 	}
 }
 
-Template.photo.rendered = function() {
+Template.photoPage.rendered = function() {
 	// Use auto-run to update the current id based on the template
 	// instance.
 	var that = this;
@@ -76,13 +76,13 @@ Template.photo.rendered = function() {
 
 	$(window).on(
 		'keydown',
-		$.proxy(Template.photo.captureNextPrevKeypress, this)
+		$.proxy(Template.photoPage.captureNextPrevKeypress, this)
 	);
 };
 
-Template.photo.destroyed = function() {
+Template.photoPage.destroyed = function() {
 	$(window).off(
 		'keydown',
-		$.proxy(Template.photo.captureNextPrevKeypress, this)
+		$.proxy(Template.photoPage.captureNextPrevKeypress, this)
 	);
 };

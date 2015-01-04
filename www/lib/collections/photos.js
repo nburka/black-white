@@ -19,8 +19,8 @@ _.extend(Photo.prototype, {
 				this.filename
 			),
 			alt: this.title,
-			width: '200',
-			height: '200'
+			width: dimension,
+			height: dimension
 		};
 	}
 });

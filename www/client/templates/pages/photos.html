@@ -1,0 +1,14 @@
+<template name="photosPage">
+	{{setPageTitle 'All Photos'}}
+	{{removeBodyClass 'dark'}}
+	{{> header}}
+	<ul class="photos">
+	{{#each photos}}
+		<li>
+			{{#linkTo route="photoPage"}}
+				<img {{getImgTag '300'}} />
+			{{/linkTo}}
+		</li>
+	{{/each}}
+	</ul>
+</template>

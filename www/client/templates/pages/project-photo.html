@@ -1,16 +1,18 @@
-<template name="projectPhoto">
+<template name="projectPhotoPage">
 	{{setPageTitle project.title photo.title}}
-	<div class="photo-page">
+	{{addBodyClass 'dark'}}
+	{{#linkTo route="projectPage" _id=project._id class="back-link hide-on-idle"}}{{project.title}}{{/linkTo}}
+	<div class="PhotoPage">
 		<div class="photo">
-			<div class="next-prev">
+			<div class="next-prev hide-on-idle">
 				{{#with getPrevPhoto}}
 					{{#if this}}
-						{{#linkTo route="projectPhoto" project_id=../project._id class="prev-link"}}{{/linkTo}}
+						{{#linkTo route="projectPhotoPage" project_id=../project._id class="prev-link"}}{{/linkTo}}
 					{{/if}}
 				{{/with}}
 				{{#with getNextPhoto}}
 					{{#if this}}
-						{{#linkTo route="projectPhoto" project_id=../project._id class="next-link"}}{{/linkTo}}
+						{{#linkTo route="projectPhotoPage" project_id=../project._id class="next-link"}}{{/linkTo}}
 					{{/if}}
 				{{/with}}
 			</div>
