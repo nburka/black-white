@@ -1,7 +1,7 @@
 Router.configure({
 	layoutTemplate: 'layout',
-	loadingTemplate: 'loading',
-	notFoundTemplate: 'notFound',
+	loadingTemplate: 'loadingPage',
+	notFoundTemplate: 'notFoundPage',
 	waitOn: function() {
 		return [
 			Meteor.subscribe('photos'),
@@ -15,7 +15,7 @@ Router.configure({
 		if (Meteor.isClient) {
 			var currentRoute = Router.current();
 			var template = (currentRoute) ? currentRoute.lookupTemplate() : '';
-			$('body').addClass(template.toLowerCase() + '-page');
+			$('body').addClass(template);
 
 		}
 	},
@@ -23,20 +23,16 @@ Router.configure({
 		if (Meteor.isClient) {
 			var currentRoute = Router.current();
 			var template = (currentRoute) ? currentRoute.lookupTemplate() : '';
-			$('body').removeClass(template.toLowerCase() + '-page');
+			$('body').removeClass(template);
 		}
 	}
 });
 
-Router.plugin('dataNotFound', {notFoundTemplate: 'notFound'});
+Router.plugin('dataNotFound', {notFoundTemplate: 'notFoundPage'});
 
 Router.route('/', function() {
-	this.render('project', {
-		data: function() {
-			return Projects.findOne({}, { create_date : 'asc'} );
-		}
-	});
-}, { name: 'home', fastRender: true });
+	this.render('projectsPage');
+}, { name: 'projectsPage', fastRender: true });
 
 Router.route('/feed', function() {
 	var request = this.request;
@@ -82,34 +78,34 @@ Router.route('/feed', function() {
 	this.response.end(feed.xml({indent: true}));
 }, { where: 'server' });
 
-Router.route('/photos', { name: 'photos' });
+Router.route('/photos', { name: 'photosPage' });
 
 Router.route('/photos/:_id', function() {
-	this.render('photo', {
+	this.render('photoPage', {
 		data: function() {
 			return Photos.findOne({_id: this.params._id});
 		}
 	});
 }, {
-	name: 'photo',
+	name: 'photoPage',
 	layoutTemplate: '',
 	fastRender: true
 });
 
 Router.route('/projects', function() {
 	this.redirect('/');
-});
+}, { name: 'projects-redirect' });
 
 Router.route('/projects/:_id', function() {
-	this.render('project', {
+	this.render('projectPage', {
 		data: function() {
 			return Projects.findOne({_id: this.params._id});
 		}
 	});
-}, { name: 'project', fastRender: true });
+}, { name: 'projectPage', fastRender: true });
 
 Router.route('projects/:project_id/photos/:_id', function() {
-	this.render('projectPhoto', {
+	this.render('projectPhotoPage', {
 		data: function() {
 			return {
 				photo: Photos.findOne({_id: this.params._id}),
@@ -118,7 +114,7 @@ Router.route('projects/:project_id/photos/:_id', function() {
 		}
 	});
 }, {
-	name: 'projectPhoto',
+	name: 'projectPhotoPage',
 	layoutTemplate: '',
 	fastRender: true
 });

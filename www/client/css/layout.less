@@ -5,6 +5,10 @@ body {
 	margin: 0;
 	padding: 10px;
 	background: #fffffd;
+	&.dark {
+		background: #191919;
+	}
+
 	font-family: 'Arimo', sans-serif;
 	font-size: @font-size-base;
 
@@ -58,38 +62,73 @@ img {
 		vertical-align: middle;
 		margin: 0 10px;
 		font-size: @font-size-base;
+		min-width: 110px;
+	}
+
+	a {
+		color: #666;
+
+		.dark & {
+			color: #ccc;
+		}
+
+		&:hover {
+			color: #000;
+			.dark & {
+				color: #aaa;
+			}
+		}
 	}
 
 	span {
 		font-weight: bold;
+
+		.dark & {
+			color: #fff;
+		}
 	}
 
-	.divider {
+	span.divider {
 		margin: 0 5px;
 		width: 10px;
 		background: #ccc;
+
+		.dark & {
+			background: #555;
+		}
+
 		width: 1px;
+		min-width: 0;
 		height: 20px;
+	}
+
+	a:first-child,
+	span:first-child {
+		text-align: right;
+	}
+
+	a:last-child,
+	span:last-child {
+		text-align: left;
 	}
 }
 
 @media (min-width: @screen-sm-min) {
 	.header {
-		text-align: left;
-
 		a, span {
 			font-size: @font-size-large;
+			min-width: 160px;
 		}
 	}
 
 	.back-link {
 		display: block;
-		height: 25px;
-		line-height: 25px;
-		padding-left: 25px;
-		.at2x('../img/black-back.png', 25px, 25px);
+		height: 15px;
+		line-height: 15px;
+		padding-left: 20px;
+		.at2x('../img/black-back.png', 15px, 15px);
 		.dark & {
-			.at2x('../img/back.png', 25px, 25px);
+			.at2x('../img/back.png', 15px, 15px);
 		}
 	}
 }

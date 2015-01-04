@@ -1,0 +1,9 @@
+<template name="projectsPage">
+	{{setPageTitle 'Curated Photos'}}
+	{{addBodyClass 'dark'}}
+
+	{{> header}}
+	{{#each projects}}
+		{{> project this}}
+	{{/each}}
+</template>

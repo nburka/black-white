@@ -1,17 +1,17 @@
-<template name="photo">
+<template name="photoPage">
 	{{setPageTitle title}}
 	{{removeBodyClass 'dark'}}
-	{{#linkTo route="photos" class="back-link hide-on-idle"}}Back to All Photos{{/linkTo}}
+	{{#linkTo route="photosPage" class="back-link hide-on-idle"}}Back to All Photos{{/linkTo}}
 	<div class="photo">
 		<div class="next-prev hide-on-idle">
 			{{#with getPrevPhoto}}
 				{{#if this}}
-					{{#linkTo route="photo" class="prev-link"}}{{/linkTo}}
+					{{#linkTo route="photoPage" class="prev-link"}}{{/linkTo}}
 				{{/if}}
 			{{/with}}
 			{{#with getNextPhoto}}
 				{{#if this}}
-					{{#linkTo route="photo" class="next-link"}}{{/linkTo}}
+					{{#linkTo route="photoPage" class="next-link"}}{{/linkTo}}
 				{{/if}}
 			{{/with}}
 		</div>

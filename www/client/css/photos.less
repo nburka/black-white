@@ -1,20 +1,11 @@
 @import 'mixins.import.less';
 
-.photos-page {
-	.header a {
-		color: #666;
-
-		&:hover {
-			color: #000;
-		}
-	}
-}
-
 ul.photos {
 	position: relative;
 	list-style: none;
 	padding: 0;
 	margin-top: 40px;
+	text-align: center;
 
 	li {
 		display: block;
@@ -22,6 +13,7 @@ ul.photos {
 
 		img {
 			width: 100%;
+			max-width: 400px;
 			height: auto;
 			box-shadow: 0px 0px 20px 0px rgba(0,0,0,0);
 			transition: 0.2s ease-in-out;
@@ -35,10 +27,8 @@ ul.photos {
 	}
 
 	@media (min-width: @screen-sm-min) {
-		margin-top: 10px;
-
 		li {
-			float: left;
+			display: inline-block;
 
 			img {
 				width: 200px;
