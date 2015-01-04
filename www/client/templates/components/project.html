@@ -3,7 +3,11 @@
 	{{addBodyClass 'dark'}}
 
 	<div class="project">
-		<h1><img class="lazy" data-src="/img/projects/{{title_image.file_name}}.png" data-retina-src="/img/projects/{{title_image.file_name}}.png" alt="{{title}}" width="{{title_image.width}}" height="{{title_image.height}}" /></h1>
+		<h1>
+			{{#linkTo route="projectPage"}}
+				<img class="lazy" data-src="/img/projects/{{title_image.file_name}}.png" data-retina-src="/img/projects/{{title_image.file_name}}.png" alt="{{title}}" width="{{title_image.width}}" height="{{title_image.height}}" />
+			{{/linkTo}}
+		</h1>
 		{{#if description}}<p class="description">{{description}}</p>{{/if}}
 		<ul class="photos">
 		{{#each photos}}
