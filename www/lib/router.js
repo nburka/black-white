@@ -11,7 +11,6 @@ Router.configure({
 		return [
 			Meteor.subscribe('photos'),
 			Meteor.subscribe('projects')
-			//IRLibLoader.load('/js/jquery.unveil.js')
 		];
 	},
 	onBeforeAction: function() {
