@@ -104,17 +104,19 @@ img {
 }
 
 .back-link {
+	position: absolute;
 	display: block;
 	text-align: center;
-	vertical-align: center;
-	position: absolute;
+	width: 100px;
 	top: 20px;
-	width: 100%;
+	left: 50%;
+	margin-left: -50px;
+	z-index: 4;
 
 	span {
-		display: block;
-		margin: 0 auto;
-		max-width: 200px;
+		&.desktop {
+			display: none;
+		}
 	}
 }
 
@@ -139,9 +141,11 @@ img {
 	.back-link {
 		position: relative;
 		top: 7px;
+		left: 0;
 		min-height: 15px;
 		width: auto;
 		padding-left: 20px;
+		margin: 0;
 		text-align: left;
 		.at2x('../img/black-back.png', 15px, 15px);
 		.dark & {
@@ -152,6 +156,14 @@ img {
 		span {
 			max-width: none;
 			margin: auto;
+
+			&.desktop {
+				display: inline;
+			}
+
+			&.mobile {
+				display: none;
+			}
 		}
 	}
 }
