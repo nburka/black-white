@@ -1,7 +1,7 @@
 <template name="photoPage">
 	{{setPageTitle title}}
 	{{removeBodyClass 'dark'}}
-	{{#linkTo route="photosPage" class="back-link hide-on-idle"}}Back to All Photos{{/linkTo}}
+	{{#linkTo route="photosPage" class="back-link hide-on-idle"}}<span>Back to photos</span>{{/linkTo}}
 	<div class="photo">
 		<div class="next-prev hide-on-idle">
 			{{#with getPrevPhoto}}
@@ -21,4 +21,5 @@
 	</div>
 	{{> photoInfo this }}
 	{{> photoMetaData this }}
+	{{#linkTo route="photosPage" class="photo-background-link"}}{{/linkTo}}
 </template>
