@@ -2,6 +2,11 @@ Router.configure({
 	layoutTemplate: 'layout',
 	loadingTemplate: 'loadingPage',
 	notFoundTemplate: 'notFoundPage',
+	onData: function() {
+		if (Meteor.isClient) {
+			$("img.lazy").unveil();
+		}
+	},
 	waitOn: function() {
 		return [
 			Meteor.subscribe('photos'),
@@ -78,7 +83,9 @@ Router.route('/feed', function() {
 	this.response.end(feed.xml({indent: true}));
 }, { where: 'server' });
 
-Router.route('/photos', { name: 'photosPage' });
+Router.route('/photos', function() {
+	this.render('photosPage');
+}, { name: 'photosPage' });
 
 Router.route('/photos/:_id', function() {
 	this.render('photoPage', {
