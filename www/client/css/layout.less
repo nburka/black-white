@@ -11,6 +11,7 @@ body {
 
 	font-family: 'Arimo', sans-serif;
 	font-size: @font-size-base;
+	-webkit-font-smoothing: antialiased;
 
 	.hide-on-idle {
 		transition: opacity 0.4s ease-in-out;
@@ -113,6 +114,21 @@ img {
 	}
 }
 
+.back-link {
+	display: block;
+	text-align: center;
+	vertical-align: center;
+	position: absolute;
+	top: 20px;
+	width: 100%;
+
+	span {
+		display: block;
+		margin: 0 auto;
+		max-width: 200px;
+	}
+}
+
 @media (min-width: @screen-sm-min) {
 	.header {
 		a, span {
@@ -122,13 +138,20 @@ img {
 	}
 
 	.back-link {
-		display: block;
-		height: 15px;
-		line-height: 15px;
+		position: relative;
+		top: 7px;
+		min-height: 15px;
 		padding-left: 20px;
+		text-align: left;
 		.at2x('../img/black-back.png', 15px, 15px);
 		.dark & {
 			.at2x('../img/back.png', 15px, 15px);
+		}
+		background-position: 0 50%;
+
+		span {
+			max-width: none;
+			margin: auto;
 		}
 	}
 }
