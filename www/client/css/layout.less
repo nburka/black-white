@@ -63,7 +63,6 @@ img {
 		vertical-align: middle;
 		margin: 0 10px;
 		font-size: @font-size-base;
-		min-width: 110px;
 	}
 
 	a {
@@ -102,16 +101,6 @@ img {
 		min-width: 0;
 		height: 20px;
 	}
-
-	a:first-child,
-	span:first-child {
-		text-align: right;
-	}
-
-	a:last-child,
-	span:last-child {
-		text-align: left;
-	}
 }
 
 .back-link {
@@ -134,6 +123,16 @@ img {
 		a, span {
 			font-size: @font-size-large;
 			min-width: 160px;
+		}
+
+		a:first-child,
+		span:first-child {
+			text-align: right;
+		}
+
+		a:last-child,
+		span:last-child {
+			text-align: left;
 		}
 	}
 
