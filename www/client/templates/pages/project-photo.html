@@ -18,6 +18,7 @@
 			</div>
 			<div class="photo-img">
 				<img {{photo.getImgTag '1000'}} />
+				<div class="photo-loading"><div class="throbber"></div></div>
 			</div>
 			{{> photoInfo photo }}
 			<p class="copyright">All rights reserved {{dateFormat photo_date 'YYYY'}}, Nicholas Burka</p>
