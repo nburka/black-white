@@ -7,6 +7,16 @@ Template.photoPage.helpers({
 	}
 });
 
+Template.photoPage.events({
+	'click .photo-img': function(e) {
+		e.preventDefault();
+		Router.go('/photos/');
+	},
+	'click .photo-img img': function(e) {
+		e.preventDefault();
+	}
+});
+
 Template.photoPage.getPrevPhoto = function(id) {
 	var photos = Photos.find(
 		{},
