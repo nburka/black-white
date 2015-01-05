@@ -7,6 +7,23 @@ Template.projectPhotoPage.helpers({
 	}
 });
 
+Template.projectPhotoPage.events({
+	'click .photo-img': function(e) {
+		e.preventDefault();
+
+		var data = Template.currentData();
+		Router.go(
+			_.str.sprintf(
+				'/projects/%s',
+				data.project._id
+			)
+		);
+	},
+	'click .photo-img img': function(e) {
+		e.preventDefault();
+	}
+});
+
 Template.projectPhotoPage.getPhotos = function(project) {
 	var photos = Photos.find({ _id: { $in: project.photos }});
 
