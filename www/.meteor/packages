@@ -16,3 +16,4 @@ meteorhacks:npm
 npm-container
 wizonesolutions:underscore-string
 meteorhacks:fast-render
+lauricio:less-autoprefixer
