@@ -1,6 +1,6 @@
 <template name="projectPage">
 	{{setPageTitle title}}
 	{{addBodyClass 'dark'}}
-	{{#linkTo route="projectsPage" class="back-link"}}<span>Back to curated photos</span>{{/linkTo}}
+	{{#linkTo route="projectsPage" class="back-link"}}<span class="desktop">Back to curated photos</span><span class="mobile">Back</span>{{/linkTo}}
 	{{> project}}
 </template>

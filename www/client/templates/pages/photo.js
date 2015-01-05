@@ -72,6 +72,11 @@ Template.photoPage.rendered = function() {
 	this.autorun(function() {
 		$("img.lazy").unveil();
 		that.current_id = Template.currentData()._id;
+		$('.photo-img').addClass('loading');
+	});
+
+	$('.photo-img img').on('load', function() {
+		$('.photo-img').removeClass('loading');
 	});
 
 	$(window).on(

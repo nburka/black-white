@@ -1,7 +1,7 @@
 <template name="projectPhotoPage">
 	{{setPageTitle project.title photo.title}}
 	{{addBodyClass 'dark'}}
-	{{#linkTo route="projectPage" _id=project._id class="back-link hide-on-idle"}}<span>{{project.title}}</span>{{/linkTo}}
+	{{#linkTo route="projectPage" _id=project._id class="back-link hide-on-idle"}}<span class="desktop">{{project.title}}</span><span class="mobile">Back</span>{{/linkTo}}
 	<div class="PhotoPage">
 		<div class="photo">
 			<div class="next-prev hide-on-idle">
@@ -18,6 +18,7 @@
 			</div>
 			<div class="photo-img">
 				<img {{photo.getImgTag '1000'}} />
+				<div class="photo-loading"><div class="throbber"></div></div>
 			</div>
 			{{> photoInfo photo }}
 			<p class="copyright">All rights reserved {{dateFormat photo_date 'YYYY'}}, Nicholas Burka</p>

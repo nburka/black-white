@@ -3,7 +3,7 @@
 
 body {
 	margin: 0;
-	padding: 10px;
+	padding: 0 10px 10px 10px;
 	background: #fffffd;
 	&.dark {
 		background: #191919;
@@ -54,7 +54,7 @@ img {
 }
 
 .header {
-	margin: 5px 0;
+	margin: 15px 0 10px 0;
 	text-align: center;
 	font-size: @font-size-small;
 
@@ -63,7 +63,6 @@ img {
 		vertical-align: middle;
 		margin: 0 10px;
 		font-size: @font-size-base;
-		min-width: 110px;
 	}
 
 	a {
@@ -102,30 +101,22 @@ img {
 		min-width: 0;
 		height: 20px;
 	}
-
-	a:first-child,
-	span:first-child {
-		text-align: right;
-	}
-
-	a:last-child,
-	span:last-child {
-		text-align: left;
-	}
 }
 
 .back-link {
+	position: absolute;
 	display: block;
 	text-align: center;
-	vertical-align: center;
-	position: absolute;
-	top: 20px;
-	width: 100%;
+	width: 100px;
+	top: 25px;
+	left: 50%;
+	margin-left: -50px;
+	z-index: 4;
 
 	span {
-		display: block;
-		margin: 0 auto;
-		max-width: 200px;
+		&.desktop {
+			display: none;
+		}
 	}
 }
 
@@ -135,14 +126,26 @@ img {
 			font-size: @font-size-large;
 			min-width: 160px;
 		}
+
+		a:first-child,
+		span:first-child {
+			text-align: right;
+		}
+
+		a:last-child,
+		span:last-child {
+			text-align: left;
+		}
 	}
 
 	.back-link {
 		position: relative;
 		top: 7px;
+		left: 0;
 		min-height: 15px;
 		width: auto;
 		padding-left: 20px;
+		margin: 0;
 		text-align: left;
 		.at2x('../img/black-back.png', 15px, 15px);
 		.dark & {
@@ -153,6 +156,14 @@ img {
 		span {
 			max-width: none;
 			margin: auto;
+
+			&.desktop {
+				display: inline;
+			}
+
+			&.mobile {
+				display: none;
+			}
 		}
 	}
 }
