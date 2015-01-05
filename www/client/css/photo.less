@@ -46,13 +46,11 @@
 				}
 			}
 
-			@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 			@keyframes spin { 100% { transform: rotate(360deg); } }
 
 			&.loading .photo-loading {
 				opacity: 1;
 				.throbber {
-					-webkit-animation: spin 1s linear infinite;
 					animation: spin 1s linear infinite;
 				}
 			}
@@ -205,7 +203,6 @@
 			width: 100%;
 			height: auto;
 			filter: blur(15px);
-			-webkit-filter: blur(15px);
 		}
 	}
 }
