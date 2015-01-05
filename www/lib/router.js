@@ -65,8 +65,9 @@ Router.route('/feed', function() {
 
 	photos.forEach(function(photo) {
 		var img_tag = _.str.sprintf(
-			'<img src="%s" />',
-			Meteor.absoluteUrl('photos/' + photo._id + '.jpg')
+			'<img src="%s/photos/1000/%s" />',
+			Meteor.settings.public.uri.cdn,
+			photo.filename
 		);
 
 		feed.item({
