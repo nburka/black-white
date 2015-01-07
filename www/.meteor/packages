@@ -4,9 +4,7 @@
 # but you can also edit it by hand.
 
 meteor-platform
-less
 iron:router
-gwendall:less-prefixer
 
 mrt:moment
 underscore

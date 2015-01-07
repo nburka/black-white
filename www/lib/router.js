@@ -44,8 +44,8 @@ Router.route('/feed', function() {
 	var rssNpm = Meteor.npmRequire('rss');
 
 	var feed = new rssNpm({
-		title: 'Black and White',
-		description: 'Foo',
+		title: Meteor.settings.public.site.title,
+		description: 'Photos by Nicholas Burka',
 		feed_url: Meteor.absoluteUrl('feed'),
 		site_url: Meteor.absoluteUrl(),
 		copyright: _.str.sprintf(
