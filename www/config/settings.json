@@ -1,5 +1,8 @@
 {
 	"public": {
+		"site": {
+			"title": "Pathosformel"
+		},
 		"uri": {
 			"cdn": "https://s3.amazonaws.com/burka-photography"
 		}
