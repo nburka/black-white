@@ -13,21 +13,9 @@ Router.configure({
 			Meteor.subscribe('projects')
 		];
 	},
-	onBeforeAction: function() {
-		this.next();
-
-		if (Meteor.isClient) {
-			var currentRoute = Router.current();
-			var template = (currentRoute) ? currentRoute.lookupTemplate() : '';
-			$('body').addClass(template);
-
-		}
-	},
 	onStop: function() {
 		if (Meteor.isClient) {
-			var currentRoute = Router.current();
-			var template = (currentRoute) ? currentRoute.lookupTemplate() : '';
-			$('body').removeClass(template);
+			$('body').removeClass();
 		}
 	}
 });

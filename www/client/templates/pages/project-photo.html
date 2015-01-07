@@ -1,8 +1,8 @@
 <template name="projectPhotoPage">
 	{{setPageTitle project.title photo.title}}
-	{{addBodyClass 'dark'}}
+	{{addBodyClass 'dark project-photo-page'}}
 	{{#linkTo route="projectPage" _id=project._id class="back-link hide-on-idle"}}<span class="desktop">{{project.title}}</span><span class="mobile">Back</span>{{/linkTo}}
-	<div class="PhotoPage">
+	<div class="photo-page">
 		<div class="photo">
 			<div class="next-prev hide-on-idle">
 				{{#with getPrevPhoto}}
