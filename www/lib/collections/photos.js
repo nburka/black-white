@@ -6,6 +6,7 @@ _.extend(Photo.prototype, {
 	getImgTag: function (dimension) {
 		return {
 			'class': 'lazy',
+			'src': 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
 			'data-src': _.str.sprintf(
 				'%s/photos/%s/%s',
 				Meteor.settings.public.uri.cdn,
