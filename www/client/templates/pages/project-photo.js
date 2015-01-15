@@ -110,8 +110,18 @@ Template.projectPhotoPage.rendered = function() {
 	this.autorun(function() {
 		$("img.lazy").unveil();
 		that.current_data = Template.currentData();
-		$('.photo-img').addClass('loading');
+		$('.photo-img').addClass('loading animate-throbber');
 	});
+
+	$('.photo-img').on(
+		'webkitTransitionEnd otransitionend oTransitionEnd ' +
+		'msTransitionEnd transitionend',
+		function (e) {
+			if (!$(this).hasClass('loading')) {
+				$(this).removeClass('animate-throbber');
+			}
+		}
+	);
 
 	$('.photo-img img').on('load', function() {
 		$('.photo-img').removeClass('loading');
