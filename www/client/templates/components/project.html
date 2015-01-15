@@ -2,7 +2,7 @@
 	<div class="project">
 		<h1>
 			{{#linkTo route="projectPage"}}
-				<img class="lazy" data-src="/img/projects/{{title_image.file_name}}.png" data-retina-src="/img/projects/{{title_image.file_name}}.png" alt="{{title}}" width="{{title_image.width}}" height="{{title_image.height}}" />
+				<img class="lazy" data-src="{{cdnUri title_image.file_name}}" data-retina-src="{{cdnUri title_image.file_name_at2x}}" alt="{{title}}" width="{{title_image.width}}" height="{{title_image.height}}" />
 			{{/linkTo}}
 		</h1>
 		{{#if description}}<p class="description">{{description}}</p>{{/if}}

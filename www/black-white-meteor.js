@@ -16,8 +16,8 @@ if (Meteor.isClient) {
 		$(document.body).addClass(classes);
 	});
 
-	Template.registerHelper('removeBodyClass', function(classes) {
-		$(document.body).removeClass(classes);
+	Template.registerHelper('cdnUri', function(uri) {
+		return Meteor.settings.public.uri.cdn + '/resources' + uri;
 	});
 }
 
