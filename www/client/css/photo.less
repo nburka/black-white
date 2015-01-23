@@ -37,11 +37,12 @@
 					top: 50%;
 					left: 50%;
 					margin: -50px 0 0 -50px;
-					background-position: 50% 50%;
-					background-repeat: no-repeat;
-					.at2x("@{cdn}/img/black-throbber.png", 100px, 100px);
+					border: 5px solid rgba(0, 0, 0, 0.2);
+					border-right-color: rgba(0, 0, 0, 0.9);
+					border-radius: 50%;
 					.dark & {
-						.at2x("@{cdn}/img/throbber.png", 100px, 100px);
+						border-color: rgba(255, 255, 255, 0.2);
+						border-right-color: rgba(255, 255, 255, 0.9);
 					}
 				}
 			}
