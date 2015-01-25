@@ -43,10 +43,17 @@ a {
 
 h1 {
 	font-size: @font-size-xlarge;
+	font-weight: normal;
 }
 
 h2 {
 	font-size: @font-size-large;
+}
+
+h1, h2 {
+	.dark & {
+		color: #fff;
+	}
 }
 
 img {
@@ -56,50 +63,68 @@ img {
 .header {
 	margin: 15px 0 20px 0;
 	text-align: center;
-	font-size: @font-size-small;
 
-	a, span {
-		display: inline-block;
-		vertical-align: middle;
-		margin: 0 10px;
-		font-size: @font-size-base;
-	}
-
-	a {
-		color: #666;
-
-		.dark & {
-			color: #ccc;
-		}
-
-		&:hover {
-			color: #000;
-			.dark & {
-				color: #aaa;
-			}
-		}
-	}
-
-	span {
-		font-weight: bold;
+	h1 a {
+		color: #000;
 
 		.dark & {
 			color: #fff;
 		}
+
+		&:hover {
+			color: #666;
+			.dark & {
+				color: #ccc;
+			}
+		}
 	}
 
-	span.divider {
-		margin: 0 5px;
-		width: 10px;
-		background: #ccc;
+	.menu {
+		font-size: @font-size-small;
 
-		.dark & {
-			background: #555;
+		a, span {
+			display: inline-block;
+			vertical-align: middle;
+			margin: 0 10px;
+			font-size: @font-size-base;
 		}
 
-		width: 1px;
-		min-width: 0;
-		height: 20px;
+		a {
+			color: #666;
+
+			.dark & {
+				color: #ccc;
+			}
+
+			&:hover {
+				color: #000;
+				.dark & {
+					color: #aaa;
+				}
+			}
+		}
+
+		span {
+			font-weight: bold;
+
+			.dark & {
+				color: #fff;
+			}
+		}
+
+		span.divider {
+			margin: 0 5px;
+			width: 10px;
+			background: #ccc;
+
+			.dark & {
+				background: #555;
+			}
+
+			width: 1px;
+			min-width: 0;
+			height: 20px;
+		}
 	}
 }
 
@@ -122,21 +147,21 @@ img {
 
 @media (min-width: @screen-sm-min) {
 	.header {
-		margin-top: 30px;
+		margin: 30px 25px 100px 25px;
+		position: relative;
+		.clearfix;
 
-		a, span {
-			font-size: @font-size-large;
-			min-width: 160px;
+		h1 {	
+			float: left;
+			margin: 0;
 		}
 
-		a:first-child,
-		span:first-child {
-			text-align: right;
-		}
-
-		a:last-child,
-		span:last-child {
-			text-align: left;
+		.menu {
+			float: right;
+			margin: 5px 0 0 0;
+			a, span {
+				font-size: @font-size-large;
+			}
 		}
 	}
 
