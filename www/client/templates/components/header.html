@@ -1,15 +1,23 @@
 <template name="header">
 	<div class="header">
 		{{#if isActiveTemplate 'ProjectsPage' }}
-			<span>Curated Photos</span>
+			<h1>pathosformel</h1>
 		{{else}}
-			{{#linkTo route="projectsPage"}}Curated Photos{{/linkTo}}
+			<h1>{{#linkTo route="projectsPage"}}pathosformel{{/linkTo}}</h1>
 		{{/if}}
-		<span class="divider"></span>
-		{{#if isActiveTemplate 'PhotosPage' }}
-			<span>All Photos</span>
-		{{else}}
-			{{#linkTo route="photosPage"}}All Photos{{/linkTo}}
-		{{/if}}
+
+		<div class="menu">
+			{{#if isActiveTemplate 'ProjectsPage' }}
+				<span>Curated Photos</span>
+			{{else}}
+				{{#linkTo route="projectsPage"}}Curated Photos{{/linkTo}}
+			{{/if}}
+			<span class="divider"></span>
+			{{#if isActiveTemplate 'PhotosPage' }}
+				<span>All Photos</span>
+			{{else}}
+				{{#linkTo route="photosPage"}}All Photos{{/linkTo}}
+			{{/if}}
+		</div>
 	</div>
 </template>

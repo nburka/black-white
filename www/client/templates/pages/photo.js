@@ -71,6 +71,9 @@ Template.photoPage.captureNextPrevKeypress = function(e) {
 	}
 
 	if (photo) {
+		e.preventDefault();
+		Template.layout.motion_sensor = false;
+		$('#body-wrapper').addClass('idle');
 		Router.go('/photos/' + photo._id);
 	}
 }
