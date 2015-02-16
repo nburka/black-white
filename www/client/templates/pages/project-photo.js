@@ -93,6 +93,10 @@ Template.projectPhotoPage.captureNextPrevKeypress = function(e) {
 	}
 
 	if (photo) {
+		e.preventDefault();
+		Template.layout.motion_sensor = false;
+		$('#body-wrapper').addClass('idle');
+
 		Router.go(
 			_.str.sprintf(
 				'/projects/%s/photos/%s',
