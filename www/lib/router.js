@@ -46,7 +46,6 @@ Router.route(
 		data: function() {
 			return Photos.findOne({_id: this.params._id});
 		},
-		layoutTemplate: '',
 		fastRender: true
 	}
 );
@@ -73,7 +72,6 @@ Router.route(
 	'projects/:project_id/photos/:_id',
 	{
 		name: 'projectPhotoPage',
-		layoutTemplate: '',
 		data: function() {
 			return {
 				photo: Photos.findOne({_id: this.params._id}),
